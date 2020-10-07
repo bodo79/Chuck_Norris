@@ -5,7 +5,8 @@ import {
 	REQUEST_ROBOTS_FAILED,
 	REQUEST_JOKE_PENDING,
 	REQUEST_JOKE_SUCCESS,
-	REQUEST_JOKE_FAILED
+	REQUEST_JOKE_FAILED,
+	PLAYER_DONE_LOADING
 } from './constants.js'
 
 const initialStateSearch = {
@@ -57,6 +58,20 @@ export const requestJoke = (state=initialStateJoke, action={}) => {
 			return Object.assign({}, state, { jokeArr: action.payload, jokeIsPendig: false, buttonText: 'Give Me another Chuck joke'});
 		case 	REQUEST_JOKE_FAILED:
 			return Object.assign({}, state, { jokeError: action.payload, jokeIsPendig: false});
+		default:
+			return state;
+	}
+}
+
+const initialStatePlayer = {
+	PlayerIsPendig: true,
+	playing: 'true' 
+}
+
+export const startPlayer = (state=initialStatePlayer, action={}) => {
+	switch (action.type) {
+		case 	PLAYER_DONE_LOADING:
+			return Object.assign({}, state, { PlayerIsPendig: false, playing: 'true'});
 		default:
 			return state;
 	}

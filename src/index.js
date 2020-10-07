@@ -7,12 +7,12 @@ import thunkMiddleware from 'redux-thunk';
 import './index.css';
 import App from './containers/App';
 import * as serviceWorker from './serviceWorker';
-import { searchRobots, requestRobots, requestJoke} from './reducers';
+import { searchRobots, requestRobots, requestJoke, startPlayer} from './reducers';
 import 'tachyons';
 
 const logger = createLogger();
 
-const rootReducer = combineReducers({ searchRobots, requestRobots, requestJoke});
+const rootReducer = combineReducers({ searchRobots, requestRobots, requestJoke, startPlayer});
 const store = 
 	createStore(rootReducer, applyMiddleware(thunkMiddleware, logger)) // usally you use root reducer
 

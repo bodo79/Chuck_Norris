@@ -8,7 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Player from '../components/Player';
 
 
-import { setSearchField, requestRobots, requestJoke} from '../actions'
+import { setSearchField, requestRobots, requestJoke, startPlayer} from '../actions'
 
 const mapStateToProps = state => {
 	return {
@@ -19,7 +19,9 @@ const mapStateToProps = state => {
 		jokeIsPendig: state.requestJoke.jokeIsPendig,
 		jokeArr: state.requestJoke.jokeArr,
 		jokeError: state.requestJoke.jokeError,
-		buttonText: state.requestJoke.buttonText
+		buttonText: state.requestJoke.buttonText,
+		PlayerIsPendig: state.startPlayer.PlayerIsPendig,
+		playing: state.startPlayer.playing
 	}
 }
 
@@ -27,7 +29,8 @@ const mapDispatchToProps = (dispatch) => {
 	return {
 		onSearchChange: (event) => dispatch(setSearchField(event.target.value)),
 		onRequestRobots: () => dispatch(requestRobots()),
-		onRequestJoke: () => dispatch(requestJoke())
+		onRequestJoke: () => dispatch(requestJoke()),
+		onReady: () => dispatch(startPlayer())
 	}	
 }
 
@@ -37,7 +40,7 @@ class App extends Component {
 	}
 
 	render() {
-		const  { robotsIsPendig, onRequestJoke, jokeArr, buttonText } = this.props;			
+		const  { robotsIsPendig, onRequestJoke, jokeArr, buttonText, playing, onReady } = this.props;			
 		return robotsIsPendig ? 
 		<h1 className='tc'> LOADING... </h1> :
 		(
@@ -47,7 +50,7 @@ class App extends Component {
 				<Scroll>
 					<JokeCard joke={jokeArr}/>
 				</Scroll>
-				<Player url={'https://www.youtube.com/watch?v=7DzFZ_4Byw8&ab_channel=hishamwaffaii'}/>
+				<Player playing={playing} onReady={onReady} url={'https://www.youtube.com/watch?v=7DzFZ_4Byw8&ab_channel=hishamwaffaii'}/>
 			</div>
 		);		
 	}

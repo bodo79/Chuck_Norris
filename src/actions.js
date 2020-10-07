@@ -5,7 +5,8 @@ import {
 	REQUEST_ROBOTS_FAILED,
 	REQUEST_JOKE_PENDING,
 	REQUEST_JOKE_SUCCESS,
-	REQUEST_JOKE_FAILED
+	REQUEST_JOKE_FAILED,
+	PLAYER_DONE_LOADING
 } from './constants.js'
 
 export const setSearchField = (text) => ({
@@ -27,4 +28,8 @@ export const requestJoke = () => (dispatch) => {
 		.then(response=> response.json())
 		.then(data => dispatch({ type: REQUEST_JOKE_SUCCESS, payload: data}))
 		.catch(error => dispatch({ type: REQUEST_JOKE_FAILED, payload: error}))
+}
+
+export const startPlayer = () => (dispatch) => {
+	dispatch({ type: PLAYER_DONE_LOADING});
 }
