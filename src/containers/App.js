@@ -5,6 +5,8 @@ import Scroll from '../components/Scroll'
 import './App.css'
 import Button from 'react-bootstrap/Button'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Player from '../components/Player';
+
 
 import { setSearchField, requestRobots, requestJoke} from '../actions'
 
@@ -30,25 +32,24 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 class App extends Component {
+
 	componentDidMount() {
-		this.props.onRequestRobots();
 	}
 
 	render() {
-		const  { robotsIsPendig, onRequestJoke, jokeArr, buttonText } = this.props;
-		
+		const  { robotsIsPendig, onRequestJoke, jokeArr, buttonText } = this.props;			
 		return robotsIsPendig ? 
 		<h1 className='tc'> LOADING... </h1> :
 		(
-			<div className="tc">
+			<div className='tc'>
 				<h1 className='f1'>Chuck Norris Roulette</h1>
 				<Button variant="outline-danger" onClick={onRequestJoke}>{buttonText}</Button>{' '}
 				<Scroll>
 					<JokeCard joke={jokeArr}/>
 				</Scroll>
+				<Player url={'https://www.youtube.com/watch?v=7DzFZ_4Byw8&ab_channel=hishamwaffaii'}/>
 			</div>
 		);		
-	
 	}
 }
 
