@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/Chuck_Norris/static/css/main.2a163bf1.chunk.css",
-    "main.js": "/Chuck_Norris/static/js/main.cf243a58.chunk.js",
-    "main.js.map": "/Chuck_Norris/static/js/main.cf243a58.chunk.js.map",
+    "main.js": "/Chuck_Norris/static/js/main.fed42a9e.chunk.js",
+    "main.js.map": "/Chuck_Norris/static/js/main.fed42a9e.chunk.js.map",
     "runtime-main.js": "/Chuck_Norris/static/js/runtime-main.44368f65.js",
     "runtime-main.js.map": "/Chuck_Norris/static/js/runtime-main.44368f65.js.map",
     "static/css/2.f778aee8.chunk.css": "/Chuck_Norris/static/css/2.f778aee8.chunk.css",
     "static/js/2.8cd6e105.chunk.js": "/Chuck_Norris/static/js/2.8cd6e105.chunk.js",
     "static/js/2.8cd6e105.chunk.js.map": "/Chuck_Norris/static/js/2.8cd6e105.chunk.js.map",
     "index.html": "/Chuck_Norris/index.html",
-    "precache-manifest.a24a9327a33155998c17d693b8647277.js": "/Chuck_Norris/precache-manifest.a24a9327a33155998c17d693b8647277.js",
+    "precache-manifest.c35b7fa7bcdb28e64aad2490bf03eba8.js": "/Chuck_Norris/precache-manifest.c35b7fa7bcdb28e64aad2490bf03eba8.js",
     "service-worker.js": "/Chuck_Norris/service-worker.js",
     "static/css/2.f778aee8.chunk.css.map": "/Chuck_Norris/static/css/2.f778aee8.chunk.css.map",
     "static/css/main.2a163bf1.chunk.css.map": "/Chuck_Norris/static/css/main.2a163bf1.chunk.css.map",
@@ -21,6 +21,6 @@
     "static/css/2.f778aee8.chunk.css",
     "static/js/2.8cd6e105.chunk.js",
     "static/css/main.2a163bf1.chunk.css",
-    "static/js/main.cf243a58.chunk.js"
+    "static/js/main.fed42a9e.chunk.js"
   ]
 }
