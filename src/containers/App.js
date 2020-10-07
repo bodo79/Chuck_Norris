@@ -41,7 +41,7 @@ class App extends Component {
 		<h1 className='tc'> LOADING... </h1> :
 		(
 			<div className="tc">
-				<h1 className='f1'>Chuck  Norris  Jokes  for  FREE</h1>
+				<h1 className='f1'>Chuck Norris Roulette</h1>
 				<Button variant="outline-danger" onClick={onRequestJoke}>{buttonText}</Button>{' '}
 				<Scroll>
 					<JokeCard joke={jokeArr}/>
