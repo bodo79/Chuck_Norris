@@ -35,12 +35,12 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 class App extends Component {
-
+	
 	componentDidMount() {
 	}
 
 	render() {
-		const  { robotsIsPendig, onRequestJoke, jokeArr, buttonText, playing, onReady } = this.props;			
+		const  { robotsIsPendig, onRequestJoke, jokeArr, buttonText, playing, onReady, PlayerIsPendig } = this.props;			
 		return robotsIsPendig ? 
 		<h1 className='tc'> LOADING... </h1> :
 		(

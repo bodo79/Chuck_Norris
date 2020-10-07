@@ -5,13 +5,13 @@ const Player = ({playing, onReady, url}) => {
 	return (
 		<div className='tc dib br1 ma2 grow bw2 shadow-5'>
 			<ReactPlayer 
-				width='1px' 
-				height='1px' 
+				width='250px' 
+				height='250px' 
 				url={url}
-				playing ={playing}
+				playing
 				onReady={onReady}
-				/>
-				<img src='https://freepngimg.com/download/chuck_norris/37468-5-chuck-norris.png'/>
+				light='https://freepngimg.com/download/chuck_norris/37468-5-chuck-norris.png'/>
+			/>
 		</div>
 
 	);
