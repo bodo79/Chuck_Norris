@@ -1,26 +1,31 @@
 import React, {Component} from 'react';
 import { connect} from 'react-redux'
-import CardList from '../components/CardList';
-import SearchBox from '../components/SearchBox'
+import JokeCard from '../components/JokeCard';
 import Scroll from '../components/Scroll'
 import './App.css'
+import Button from 'react-bootstrap/Button'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-import { setSearchField, requestRobots} from '../actions'
+import { setSearchField, requestRobots, requestJoke} from '../actions'
 
 const mapStateToProps = state => {
 	return {
 		searchField: state.searchRobots.searchField,
-		isPendig: state.requestRobots.isPendig,
-		robots: state.requestRobots.robots,
-		error: state.requestRobots.error
+		robotsIsPendig: state.requestRobots.robotsIsPendig,
+		robotsArr: state.requestRobots.robotsArr,
+		robotsError: state.requestRobots.robotsError,
+		jokeIsPendig: state.requestJoke.jokeIsPendig,
+		jokeArr: state.requestJoke.jokeArr,
+		jokeError: state.requestJoke.jokeError,
+		buttonText: state.requestJoke.buttonText
 	}
 }
 
 const mapDispatchToProps = (dispatch) => {
 	return {
 		onSearchChange: (event) => dispatch(setSearchField(event.target.value)),
-		onRequestRobots: () => dispatch(requestRobots())
-
+		onRequestRobots: () => dispatch(requestRobots()),
+		onRequestJoke: () => dispatch(requestJoke())
 	}	
 }
 
@@ -30,18 +35,16 @@ class App extends Component {
 	}
 
 	render() {
-		const  { searchField, onSearchChange, robots, isPendig }  = this.props;
-		const filterRobots = robots.filter(robot => {
-			return robot.name.toLowerCase().includes(searchField.toLowerCase());
-		})
-		return isPendig ? 
+		const  { robotsIsPendig, onRequestJoke, jokeArr, buttonText } = this.props;
+		
+		return robotsIsPendig ? 
 		<h1 className='tc'> LOADING... </h1> :
 		(
 			<div className="tc">
-				<h1 className='f2'>RoboFreinds</h1>
-				<SearchBox searchChange={onSearchChange}/>
+				<h1 className='f1'>Chuck  Norris  Jokes  for  FREE</h1>
+				<Button variant="outline-danger" onClick={onRequestJoke}>{buttonText}</Button>{' '}
 				<Scroll>
-					<CardList robots={filterRobots}/>
+					<JokeCard joke={jokeArr}/>
 				</Scroll>
 			</div>
 		);		
@@ -50,3 +53,9 @@ class App extends Component {
 }
 
 export default connect(mapStateToProps,mapDispatchToProps)(App);//connect is higher order function
+
+// <SearchBox searchChange={onSearchChange}/>
+// <CardList robots={filterRobots}/>
+// const filterRobots = robotsArr.filter(robot => {
+// 			return robot.name.toLowerCase().includes(searchField.toLowerCase());
+// 		})
